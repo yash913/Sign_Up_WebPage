@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewpont" content="with=device-width, initial-scale=1.0">
+    <title>Sign Webpage</title>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+        function validate() {
+
+            var name = document.myForm.name.value;
+            var password = document.myForm.password.value;
+            var conpassword = document.myForm.conpassword.value;
+            var email = document.myForm.email.value;
+            var atposition = email.indexOf("@");
+            var dotposition = email.lastIndexOf(".");
+            if (name == null || name == "") {
+                alert("Name must be filled out");
+                return false;
+            } else if (name.length < 3) {
+                alert("Username must be at least 3 characters long");
+                return false;
+            } else if (email == null || email == "") {
+                alert("Email must be filled out");
+                return false;
+            } else if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= email.length) {
+                alert("Please enter a valid e-mail address");
+                return false;
+            } else if (password == null || password == "") {
+                alert("Password must be filled out");
+                return false;
+            } else if (password.length < 8) {
+                alert("Password must be at least 8 characters long.");
+                return false;
+            } else if (conpassword == null || conpassword == "") {
+                alert("Confirm password");
+                return false;
+            } else if (conpassword !== password) {
+                alert("password must be same");
+                return false;
+            } else {
+                alert("Submitted Successfully");
+                return true;
+            }
+
+
+
+        }
+    </script>
+
+    <script src="https://kit.fontawesome.com/9fd9cdef34.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="boxs">
+            <h1>Sign Up</h1>
+
+            <form name="myForm" action="#" onsubmit="return validate()" method="post">
+                <div class="user">
+
+                    <i class="fas fa-user"></i>
+
+                    <input type="text" name="name" id="name" placeholder="Username" />
+
+                    <i class="fas fa-envelope"></i>
+
+
+                    <input type="text" name="email" id="email" placeholder="Email" />
+
+                    <i class="fas fa-unlock-alt"></i>
+
+                    <input type="password" name="password" id="password" placeholder="Create password" />
+
+                    <i class="fas fa-unlock-alt"></i>
+
+                    <input type="password" name="conpassword" id="conpassword" placeholder="Confirm password" />
+
+                </div>
+
+                <div class="login-btn ">
+
+
+                    <input class="btn" type="submit" value="Submit" />
+
+                </div>
+                <div class="icon">
+                    <i class="icons fa-brands fa-google"></i>
+                    <i class="icons fa-brands fa-facebook-square"></i>
+                    <i class="icons fa-brands fa-twitter-square"></i>
+                    <i class="icons fa-brands fa-linkedin"></i>
+                </div>
+                <p class="signup">Already have an account ? <span> <a href="#">Log In
+                        </a></span></p>
+
+            </form>
+        </div>
+
+    </div>
+
+</body>
